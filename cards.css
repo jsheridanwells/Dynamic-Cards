@@ -1,0 +1,12 @@
+.container {
+
+}
+
+h1, p {
+	font-family: 'Arial', sans-serif;
+}
+
+#delete {
+	height: 5em;
+	background-color: #335577;
+}
