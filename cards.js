@@ -1,24 +1,24 @@
+//select dom elements
+let frame = document.getElementById('frame');
 let input = document.getElementById('text-input');
-let button = document.getElementById('button');
+let addBtn = document.getElementById('add-button');
 
-//function to...
+//set counter to number cards
+let count = 0;
+
 function makeCard() {
-  let text = input.value;  //get text
-  let card = document.createElement('div');//create div
-  card.id = 'delete'; //give div id:delete
-  card.innerText = text;  //add text
-  let del = document.createElement('button');//create delete button
-  del.innerText = 'Delete Me';
-  del.addEventListener('click', deleteMe);  //add event listener to delete button
-  card.appendChild(del);//append delete button
-  document.getElementById('outer').appendChild(card);//append div to div:create
+  count++;
+  let text = input.value;
+  let newCard = document.createElement('div');
+  let delBtn = document.createElement('button');
 
-	//function to
-	function deleteMe() {
-	  document.getElementById('outer').removeChild(card);
-	}
+  newCard.className = 'card';
+  delBtn.className = 'delete-button';
+  delBtn.innerText = 'Delete';
 
+  newCard.innerHTML = `<h2 class="card-title">Card ${count}</h2><p>${text}</p>`;
+  newCard.appendChild(delBtn);
+  frame.appendChild(newCard);
 }
 
-
-button.addEventListener('click', makeCard);
+addBtn.addEventListener('click', makeCard);
