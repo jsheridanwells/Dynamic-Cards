@@ -16,7 +16,15 @@ function makeCard() {
   delBtn.className = 'delete-button';
   delBtn.innerText = 'Delete';
 
-  newCard.innerHTML = `<h2 class="card-title">Card ${count}</h2><p>${text}</p>`;  //insert content
+  newCard.innerHTML = `<h2 class="card-title">Card ${count}</h2>
+    <form id="color-change">
+    <input type="radio" id="red" name="color">
+    <label for="red">Red</label>
+    <input type="radio" id="blue" name="color">
+    <label for="blue">Blue</label>
+    </form>
+    <p>${text}</p>`;  //insert content
+
   newCard.appendChild(delBtn);  //add delete button to card
   frame.appendChild(newCard);  //add card to frame
   input.value = '';  //clear text in textbox
@@ -25,6 +33,20 @@ function makeCard() {
 
   function deleteCard() {
     frame.removeChild(newCard);  //remove last card from frame
+  }
+
+  newCard.addEventListener('click', changeColor);
+
+
+  function changeColor() {
+    let red = document.getElementById('red');
+    let blue = document.getElementById('blue');
+
+    if (red.checked === true) {
+      this.classList.add('red');
+    } else if (blue.checked === true) {
+      this.classList.add('blue');
+    }
   }
 }
 
