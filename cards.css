@@ -61,4 +61,12 @@ button.delete-button {
 	border-color: red;
 }
 
+.red {
+	background-color: pink;
+}
+
+.blue {
+	background-color: lightblue;
+}
+
 
